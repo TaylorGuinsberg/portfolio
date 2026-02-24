@@ -1,0 +1,419 @@
+:root {
+  --bege: #f5ecdb;
+  --marrom: #564334;
+  --verde: #4C513B;
+  --verde2: #888B76;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  background-color: var(--bege);
+  color: var(--marrom);
+  font-family: Poppins, sans-serif;
+  margin: 0 auto;
+}
+
+/* ===================== HOME ===================== */
+#home {
+  height: 720px;
+  background-image: url("svg/home.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.top-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 40px 60px;
+}
+
+.icon img {
+  border-radius: 50%;
+  width: 60px;
+  height: auto;
+}
+
+.nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--marrom);
+}
+
+
+
+/* ===================== ABOUT ===================== */
+#about {
+  background-image: url("svg/bgEscuro.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+
+  grid-template-areas:
+    "img text"
+    "empty icons";
+
+  align-items: start;
+  gap: 0;
+  padding: 80px;
+}
+
+.about-img {
+  grid-area: img;
+}
+
+.about-img img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+}
+
+.about-text {
+  grid-area: text;
+}
+
+.about-empty {
+  grid-area: empty;
+}
+
+.about-icons {
+  grid-area: icons;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.about-icons img {
+  width: 48px;
+  height: auto;
+}
+
+/* ===================== PROJECTS ===================== */
+#project {
+  padding: 80px;
+}
+
+#project h1 {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.projects-container {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 120px;
+}
+
+.project-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.project-item.reverse img {
+  order: 2;
+}
+
+.project-item.reverse .project-text {
+  order: 1;
+}
+
+.project-item img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.project-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.project-text h2 {
+  margin-bottom: 20px;
+}
+
+.project-text p {
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.project-text a {
+  align-self: center;
+  padding: 12px 28px;
+  background: var(--verde);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.project-text a:hover {
+  background: var(--verde2);
+}
+
+/* ===================== CONTACT ===================== */
+#contact {
+  background-image: url("svg/bgContato.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 80px;
+}
+
+.contatos {
+  height: 500px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.contatos h1 {
+  margin-bottom: 8px;
+}
+
+.contatos a {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.contatos img {
+  width: auto;
+  height: auto;
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  padding: 20px;
+}
+
+/* ===================== RESPONSIVIDADE ===================== */
+
+/* Tablet grande / Laptop pequeno */
+@media (max-width: 1024px) {
+  .top-bar {
+    padding: 30px 40px;
+  }
+
+  #about {
+    padding: 60px 40px;
+  }
+
+  #project {
+    padding: 60px 40px;
+  }
+
+  #contact {
+    padding: 60px 40px;
+  }
+
+  .project-item {
+    gap: 40px;
+  }
+
+  .projects-container {
+    gap: 80px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  /* Home / Nav */
+  .icon img {
+    display: none;
+  }
+
+  #home {
+    height: 500px;
+    background-position: center top;
+  }
+
+  .top-bar {
+    padding: 24px 24px;
+  }
+
+  .nav ul {
+    gap: 20px;
+  }
+
+  .nav a {
+    font-size: 0.75rem;
+  }
+
+  /* About */
+  #about {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "img"
+      "text"
+      "icons";
+    padding: 60px 24px;
+    text-align: center;
+  }
+
+  .about-empty {
+    display: none;
+  }
+
+  .about-img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+
+  .about-img img {
+    max-width: 260px;
+    border-radius: 4px;
+  }
+
+  .about-icons {
+    margin-top: 32px;
+    gap: 40px;
+  }
+
+  /* Projects */
+  #project {
+    padding: 60px 24px;
+  }
+
+  #project h1 {
+    margin-bottom: 48px;
+  }
+
+  .projects-container {
+    gap: 64px;
+  }
+
+  .project-item {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: left;
+  }
+
+  /* Remove reverse order on mobile — imagem sempre em cima */
+  .project-item.reverse img {
+    order: unset;
+  }
+
+  .project-item.reverse .project-text {
+    order: unset;
+  }
+
+  .project-text {
+    text-align: left;
+  }
+
+  .project-text a {
+    align-self: flex-start;
+  }
+
+  /* Contact */
+  #contact {
+    grid-template-columns: 1fr;
+    padding: 60px 24px;
+  }
+
+  .empty {
+    display: none;
+  }
+
+  .contatos {
+    height: auto;
+    padding: 40px 0;
+    font-size: 1rem;
+  }
+
+  .contatos img {
+    width: 160px;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  #home {
+    height: 380px;
+    background-image: url("svg/home-mobile.svg");
+  }
+
+  .icon img {
+    width: 48px;
+  }
+
+  #about {
+    padding: 48px 20px;
+    
+  }
+  #about p{
+   text-align: left;
+  }
+
+  #project {
+    padding: 48px 20px;
+  }
+
+  #contact {
+    margin-bottom: 20px;
+
+  }
+  .contatos img {
+    width: 250px; 
+  }
+
+  .about-img img {
+    max-width: 200px;
+  }
+
+  .about-icons {
+    gap: 28px;
+  }
+
+  .about-icons img {
+    width: 38px;
+  }
+
+  .projects-container {
+    gap: 48px;
+  }
+}

@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+  --bege: #f5ecdb;
+  --marrom: #564334;
+  --verde: #4C513B;
+  --verde2: #888B76;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: url(svg/bgClaro.svg);
+  color: var(--marrom);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── NAV ── */
+.top-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 40px 60px;
+}
+
+.icon img {
+  width: 80px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--marrom);
+  transition: opacity 0.2s;
+}
+
+.nav a:hover {
+  opacity: 0.6;
+}
+
+/* ── PAGE LAYOUT ── */
+.project-title{
+  color: var(--marrom);
+  font-family: Poppins;
+}
+
+#project-title{
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+#project-description{
+  text-align: left;
+}
+.project-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 40px 100px;
+}
+
+/* ── HEADER ── */
+.project-header {
+  margin-bottom: 70px;
+}
+
+.project-header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--marrom);
+}
+
+.project-header p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--marrom);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── CAROUSEL SECTION ── */
+.carousel-section {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.carousel-section h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 28px;
+  color: var(--marrom);
+}
+
+/* ── CAROUSEL ── */
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-track-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-track img {
+  min-width: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Botões laterais */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-60%);
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: var(--marrom);
+  cursor: pointer;
+  padding: 0 12px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  z-index: 2;
+  line-height: 1;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+}
+
+.carousel-btn.prev {
+  left: -48px;
+}
+
+.carousel-btn.next {
+  right: -48px;
+}
+
+/* Footer do carrossel: counter + dots */
+.carousel-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.carousel-counter {
+  font-size: 0.8rem;
+  color: var(--verde2);
+  letter-spacing: 0.05em;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--verde2);
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+.dot.active {
+  opacity: 1;
+}
+/* ── LIGHTBOX ── */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox.active {
+  display: flex;
+}
+
+#lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+#lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+#lightbox-close:hover {
+  opacity: 1;
+}
+
+.carousel-track img:first-child {
+  object-fit: contain;
+  background-color: transparent;
+}
+
+/* cursor pointer nas imagens do carrossel */
+.carousel-track img {
+  cursor: zoom-in;
+}
+
+#lightbox-prev,
+#lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 3.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  padding: 0 20px;
+  line-height: 1;
+}
+
+#lightbox-prev:hover,
+#lightbox-next:hover { opacity: 1; }
+
+#lightbox-prev { left: 20px; }
+#lightbox-next { right: 20px; }
